@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="row">
+  <div class="col-12">
+      <h2 style="text-align:center;">VIA Science Exercise</h2>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="exampleFormControlTextarea1">Input TextArea</label>
+  <textarea class="form-control" rows="3" id="name" [(ngModel)]="selectedVia.name" aria-describedby="emailHelp" placeholder="Input to API"></textarea>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <button class="btn btn-outline-secondary" *ngIf="!selectedVia.id" (click)="createVia()">Send Information To API </button>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="exampleFormControlTextarea3">Output TextArea</label>
+  <textarea class="form-control" style="vertical-align: middle" *ngFor="let viaScience of (via | slice:via.length - 1);" id="exampleFormControlTextarea3" rows="3" placeholder="Output from API" readonly>{{viaScience.name}}</textarea>
+</div>
+
+<button class="btn btn-default" *ngIf="selectedVia.id" (click)="updateVia()">Update</button>
+
+<button  class="btn btn-danger" *ngIf="selectedVia.id" (click)="deleteVia()">Delete</button>
+
+
+<router-outlet></router-outlet>
